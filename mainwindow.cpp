@@ -23,10 +23,16 @@ void MainWindow::setupConnections()
 
 void MainWindow::handlesign_InButtonClicked()
 {
-    qDebug() << "denglu! zhuandao sign_in";
+    //qDebug() << "denglu! zhuandao sign_in";
+    sign_in *s1 = new sign_in;
+    s1->show();
 }
 
 void MainWindow::handlesign_UpButtonClicked()
 {
-    qDebug() <<"zhuce,zhuandao sign_up";
+    //qDebug() <<"zhuce,zhuandao sign_up";
+    this->show();
+    sign_up *s2 = new sign_up;
+    s2->show();
+
 }

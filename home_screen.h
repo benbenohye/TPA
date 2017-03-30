@@ -2,6 +2,11 @@
 #define HOME_SCREEN_H
 
 #include <QMainWindow>
+#include <managepsw.h>
+#include <searchpwd.h>
+#include <json.hpp>
+using json = nlohmann::json;
+extern json j;
 
 namespace Ui {
 class home_screen;

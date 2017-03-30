@@ -1,6 +1,7 @@
 #include "sign_in.h"
 #include "ui_sign_in.h"
 #include <QDebug>
+#include <QMessageBox>
 
 sign_in::sign_in(QWidget *parent) :
     QMainWindow(parent),
@@ -18,9 +19,27 @@ sign_in::~sign_in()
 void sign_in::setupCOnnections()
 {
     connect(this->ui->loginButton,SIGNAL(clicked(bool)),this,SLOT(handleloginButtonClicked()));
+    connect(this->ui->exitButton,SIGNAL(clicked(bool)),this,SLOT(handleexitButtonClicked()));
 }
 
 void sign_in::handleloginButtonClicked()
 {
-    qDebug()<<"mima/yonghu cuowu //login sucessfully!";
+    if(ui->userNameEdit->text()==tr("benben")&&ui->passwordEdit->text()==tr("1234"))
+    {
+    //qDebug()<<"mima/yonghu cuowu //login sucessfully!";
+    h1.show();
+    this->close();
+    }
+    else
+    {
+        QMessageBox::warning(this,tr("Warning"),tr("user name or password error"),QMessageBox::Yes);
+        ui->userNameEdit->clear();
+        ui->passwordEdit->clear();
+        ui->userNameEdit->setFocus();
+    }
+}
+
+void sign_in::handleexitButtonClicked()
+{
+
 }

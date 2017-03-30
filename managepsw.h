@@ -2,6 +2,10 @@
 #define MANAGEPSW_H
 
 #include <QMainWindow>
+#include <QLayout>
+#include <json.hpp>
+using json = nlohmann::json;
+extern json j;
 
 namespace Ui {
 class managepsw;
@@ -23,6 +27,9 @@ public slots:
     void handledeleteButtonClicked();
 
     void handlefinishButtonClicked();
+
+    void handleprevButtonClicked();
+    void handlenextButtonClicked();
 
 private:
     Ui::managepsw *ui;

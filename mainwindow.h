@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <sign_in.h>
+#include <sign_up.h>
+#include <json.hpp>
+using json = nlohmann::json;
+extern json j;
 
 namespace Ui {
 class MainWindow;

@@ -2,6 +2,11 @@
 #define SIGN_IN_H
 
 #include <QMainWindow>
+#include <managepsw.h>
+#include <json.hpp>
+#include <home_screen.h>
+using json = nlohmann::json;
+extern json j;
 
 namespace Ui {
 class sign_in;
@@ -19,9 +24,11 @@ public:
 
 public slots:
     void handleloginButtonClicked();
+    void handleexitButtonClicked();
 
 private:
     Ui::sign_in *ui;
+    home_screen h1;
 };
 
 #endif // SIGN_IN_H

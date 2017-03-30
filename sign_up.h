@@ -2,6 +2,9 @@
 #define SIGN_UP_H
 
 #include <QWidget>
+#include <json.hpp>
+using json = nlohmann::json;
+extern json j;
 
 namespace Ui {
 class sign_up;

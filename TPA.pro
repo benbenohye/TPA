@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       +=sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,18 +30,22 @@ SOURCES += main.cpp\
     sign_in.cpp \
     home_screen.cpp \
     managepsw.cpp \
-    searchpwd.cpp
+    searchpwd.cpp \
+    modify.cpp
 
 HEADERS  += mainwindow.h \
     sign_up.h \
     sign_in.h \
     home_screen.h \
     managepsw.h \
-    searchpwd.h
+    searchpwd.h \
+    json.hpp \
+    modify.h
 
 FORMS    += mainwindow.ui \
     sign_up.ui \
     sign_in.ui \
     home_screen.ui \
     managepsw.ui \
-    searchpwd.ui
+    searchpwd.ui \
+    modify.ui

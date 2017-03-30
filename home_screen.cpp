@@ -23,10 +23,14 @@ void home_screen::setupconnections()
 
 void home_screen::handlemanageButtonClicked()
 {
-    qDebug()<<"zhuandao manage_psw";
+    //qDebug()<<"zhuandao manage_psw";
+    managepsw *manage1 = new managepsw;
+    manage1->show();
 }
 
 void home_screen::handlesearchButtonClicked()
 {
-    qDebug()<<"zhuandao search_psw";
+    //qDebug()<<"zhuandao search_psw";
+    searchpwd * search1 = new searchpwd;
+    search1->show();
 }
