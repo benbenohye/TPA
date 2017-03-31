@@ -14,6 +14,7 @@ managepsw::managepsw(QWidget *parent) :
     ui->setupUi(this);
     this->setupconnections();
     page=1;
+    dataShow();
 }
 
 managepsw::~managepsw()
@@ -24,28 +25,64 @@ managepsw::~managepsw()
 void managepsw::showPw(int i)
 {
 
-    QMessageBox::information(this,"password","test");
+    QMessageBox::information(this,"password",data[i]["pwd"].get<std::string>().c_str());
 }
 
 void managepsw::dataShow()
 {
 
-//   if(j["list"]){
-//       if(page=0){
-//           page=1;
-//       }
-//       int k
-//   }
-//   else{
-//       page=0;
-//       total=0;
-//   }
+   if(j["list"].size()){
+       if(page==0){
+           page=1;
+       }
+
+       total=(j["list"].size()+4)/5;
+       if(page>total){
+           page=total;
+       }
+       data.clear();
+       for(int i=0;i<5;i++){
+           data.push_back(j["list"][(page-1)*5+i]);
+       }
+       if(data[0] .size())
+       ui->oneButton->setText((data[0]["usrname"].get<std::string>()+"("+data[0]["detail"].get<std::string>()+")").c_str());
+       else
+           ui->oneButton->hide();
+
+       if(data[1] .size())
+       ui->twoButton->setText((data[1]["usrname"].get<std::string>()+"("+data[1]["detail"].get<std::string>()+")").c_str());
+       else
+           ui->twoButton->hide();
+
+       if(data[2] .size())
+       ui->threeButton->setText((data[2]["usrname"].get<std::string>()+"("+data[2]["detail"].get<std::string>()+")").c_str());
+       else
+           ui->threeButton->hide();
+
+       if(data[3] .size())
+       ui->fourButton->setText((data[3]["usrname"].get<std::string>()+"("+data[3]["detail"].get<std::string>()+")").c_str());
+       else
+           ui->fourButton->hide();
+
+       if(data[4] .size())
+       ui->fiveButton->setText((data[4]["usrname"].get<std::string>()+"("+data[4]["detail"].get<std::string>()+")").c_str());
+       else
+           ui->fiveButton->hide();
+
+
+   }
+   else{
+       page=0;
+       total=0;
+   }
 }
 void managepsw::setupconnections()
 {
 
 
     connect(this->ui->finishButton,SIGNAL(clicked(bool)),this,SLOT(handlefinishButtonClicked()));
+
+
 
     connect(ui->oneButton,  &QPushButton::clicked, this, [this]{ showPw(0); });
     connect(ui->twoButton,  &QPushButton::clicked, this, [this]{ showPw(1); });

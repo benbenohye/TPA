@@ -40,6 +40,7 @@ private:
     int page;
     int total;
 
+    vector<json> data;
 
     Ui::managepsw *ui;
 };

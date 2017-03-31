@@ -54,14 +54,14 @@ int main(int argc, char *argv[])
     u1["usrname"]="benben"; //the first usr
     u1["pwd"]="34567"; //the first pwd duplicate
     u1["detail"]="just a try1"; //the firstpwd description
-    u2["usrname"]="benben1"; //the second usr
+    u2["usrname"]="sb"; //the second usr
     u2["pwd"]="34568"; //the first pwd duplicate
     u2["detail"]="just a try2"; //the second description
     u3["usrname"]="nana";   //the third usr
     u3["pwd"]="34569"; //the first pwd duplicate
     u3["detail"]="just a try3"; //the third description
     j["list"]={u1,u2,u3}; //save three password
-    for(int i=0;i<100;i++){
+    for(int i=0;i<0;i++){
         j["list"].push_back(u1);
         j["list"].push_back(u2);
         j["list"].push_back(u3);
