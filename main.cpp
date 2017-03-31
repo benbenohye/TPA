@@ -61,6 +61,11 @@ int main(int argc, char *argv[])
     u3["pwd"]="34569"; //the first pwd duplicate
     u3["detail"]="just a try3"; //the third description
     j["list"]={u1,u2,u3}; //save three password
+    for(int i=0;i<100;i++){
+        j["list"].push_back(u1);
+        j["list"].push_back(u2);
+        j["list"].push_back(u3);
+    }
     }
     {
     std::ofstream o("/root/file.json");

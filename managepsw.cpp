@@ -2,14 +2,18 @@
 #include "ui_managepsw.h"
 #include <QDebug>
 #include <QStringListModel>
+#include <QMessageBox>
 #include <string>
-
+#include <json.hpp>
+using json = nlohmann::json;
+extern json j;
 managepsw::managepsw(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::managepsw)
 {
     ui->setupUi(this);
     this->setupconnections();
+    page=1;
 }
 
 managepsw::~managepsw()
@@ -17,13 +21,41 @@ managepsw::~managepsw()
     delete ui;
 }
 
+void managepsw::showPw(int i)
+{
+
+    QMessageBox::information(this,"password","test");
+}
+
+void managepsw::dataShow()
+{
+
+//   if(j["list"]){
+//       if(page=0){
+//           page=1;
+//       }
+//       int k
+//   }
+//   else{
+//       page=0;
+//       total=0;
+//   }
+}
 void managepsw::setupconnections()
 {
-    connect(this->ui->newButton,SIGNAL(clicked(bool)),this,SLOT(handlenewButtonClicked()));
-    connect(this->ui->modifyButton,SIGNAL(clicked(bool)),this,SLOT(handlemodifyButtonClicked()));
-    connect(this->ui->deleteButton,SIGNAL(clicked(bool)),this,SLOT(handledeleteButtonClicked()));
+
 
     connect(this->ui->finishButton,SIGNAL(clicked(bool)),this,SLOT(handlefinishButtonClicked()));
+
+    connect(ui->oneButton,  &QPushButton::clicked, this, [this]{ showPw(0); });
+    connect(ui->twoButton,  &QPushButton::clicked, this, [this]{ showPw(1); });
+
+    connect(ui->threeButton,  &QPushButton::clicked, this, [this]{ showPw(2); });
+
+    connect(ui->fourButton,  &QPushButton::clicked, this, [this]{ showPw(3); });
+    connect(ui->fiveButton,  &QPushButton::clicked, this, [this]{ showPw(4); });
+
+
 }
 
 void managepsw::handlenewButtonClicked()

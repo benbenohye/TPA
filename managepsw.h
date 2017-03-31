@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QLayout>
 #include <json.hpp>
+#include <vector>
+using namespace std;
 using json = nlohmann::json;
 extern json j;
 
@@ -20,8 +22,11 @@ public:
     ~managepsw();
 public:
     void setupconnections();
+    void dataShow();
 
 public slots:
+    void showPw(int i);
+
     void handlenewButtonClicked();
     void handlemodifyButtonClicked();
     void handledeleteButtonClicked();
@@ -32,7 +37,13 @@ public slots:
     void handlenextButtonClicked();
 
 private:
+    int page;
+    int total;
+
+
     Ui::managepsw *ui;
 };
+
+
 
 #endif // MANAGEPSW_H
