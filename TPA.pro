@@ -49,3 +49,6 @@ FORMS    += mainwindow.ui \
     managepsw.ui \
     searchpwd.ui \
     modify.ui
+
+RESOURCES += \
+    rs.qrc

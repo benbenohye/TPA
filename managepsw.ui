@@ -452,12 +452,15 @@
       <rect>
        <x>430</x>
        <y>20</y>
-       <width>51</width>
-       <height>26</height>
+       <width>30</width>
+       <height>30</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/new/prefix1/image/img_0_2361532439D2478945053_23.jpg.png);</string>
+     </property>
      <property name="text">
-      <string>remove</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="oneButton">
@@ -478,12 +481,15 @@
       <rect>
        <x>390</x>
        <y>20</y>
-       <width>31</width>
-       <height>26</height>
+       <width>30</width>
+       <height>30</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/new/prefix1/image/img_2_3818528629D1868823599_23.jpg.png);</string>
+     </property>
      <property name="text">
-      <string>edit</string>
+      <string/>
      </property>
     </widget>
     <widget class="QWidget" name="widget_2" native="true">
@@ -543,7 +549,7 @@
      <x>0</x>
      <y>0</y>
      <width>1226</width>
-     <height>23</height>
+     <height>28</height>
     </rect>
    </property>
    <widget class="QMenu" name="menumanagepsw">
@@ -551,8 +557,8 @@
      <rect>
       <x>345</x>
       <y>85</y>
-      <width>121</width>
-      <height>52</height>
+      <width>136</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="title">

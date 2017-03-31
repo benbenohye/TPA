@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>image/1185954.gif</file>
+        <file>image/delete.png</file>
+        <file>image/img_0_2361532439D2478945053_23.jpg.png</file>
+        <file>image/img_2_308301347D1584879309_23.jpg.png</file>
+        <file>image/img_2_3818528629D1868823599_23.jpg.png</file>
+        <file>image/origami-colored-pencil-37.png</file>
+        <file>image/png400343160606101-lp.png</file>
+        <file>image/purple.png</file>
+    </qresource>
+</RCC>
