@@ -5,6 +5,8 @@
 #include <QLayout>
 #include <json.hpp>
 #include <vector>
+#include <deque>
+#include <fstream>
 using namespace std;
 using json = nlohmann::json;
 extern json j;
@@ -23,6 +25,7 @@ public:
 public:
     void setupconnections();
     void dataShow();
+    void removePw(int i);
 
 public slots:
     void showPw(int i);

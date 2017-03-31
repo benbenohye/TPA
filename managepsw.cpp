@@ -131,20 +131,49 @@ void managepsw::setupconnections()
     connect(ui->prevB,  &QPushButton::clicked, this, [this]{ if(page==1)return;page--;dataShow() ;});
     connect(ui->nextB,  &QPushButton::clicked, this, [this]{ if(page==total)return;page++;dataShow(); });
 
-}
+    connect(ui->newB,  &QPushButton::clicked, this, [this]{  auto& t=j["list"];
+        json newJ=R"(
+                  {
+                    "usrname": "daye",
+                    "pwd": "3.14",
+                    "detail":"qq"
+                  }
+                )"_json;
 
+                t.insert(t.begin(),newJ);
+
+                page=1;dataShow();
+                {
+                std::ofstream o("/root/file.json");
+                o << j;
+                }
+    });
+
+    auto re=[this](int i){j["list"].erase(j["list"].begin()+(page-1)*5+i);};
+
+    connect(ui->r1,  &QPushButton::clicked, this, [this]{ removePw(0); });
+    connect(ui->r2,  &QPushButton::clicked, this, [this]{ removePw(1); });
+    connect(ui->r3,  &QPushButton::clicked, this, [this]{ removePw(2); });
+    connect(ui->r4,  &QPushButton::clicked, this, [this]{ removePw(3); });
+    connect(ui->r5,  &QPushButton::clicked, this, [this]{ removePw(4); });
+
+
+}
+void managepsw::removePw(int i)
+{
+    j["list"].erase(j["list"].begin()+(page-1)*5+i);
+    dataShow();
+                    {
+                    std::ofstream o("/root/file.json");
+                    o << j;
+                    }
+}
 void managepsw::handlenewButtonClicked()
 {
-    //qDebug()<<"yao xinjian le wo";
-    ui->newWidget->setVisible(true);
-    ui->modifyWidget->setVisible(false);
 }
 
 void managepsw::handlemodifyButtonClicked()
 {
-    //qDebug()<<"yao xiugai le wo";
-    ui->newWidget->setVisible(false);
-    ui->listWidget->setVisible(true);
     //ui->modifyWidget->setVisible(true);
    /*
     QStringList num;
