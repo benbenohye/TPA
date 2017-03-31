@@ -31,6 +31,22 @@ void managepsw::showPw(int i)
 void managepsw::dataShow()
 {
 
+    ui->oneButton->show();
+    ui->e1->show();
+    ui->r1->show();
+    ui->twoButton->show();
+    ui->e2->show();
+    ui->r2->show();
+    ui->threeButton->show();
+    ui->e3->show();
+    ui->r3->show();
+    ui->fourButton->show();
+    ui->e4->show();
+    ui->r4->show();
+    ui->fiveButton->show();
+    ui->e5->show();
+    ui->r5->show();
+
    if(j["list"].size()){
        if(page==0){
            page=1;
@@ -47,27 +63,43 @@ void managepsw::dataShow()
        if(data[0] .size())
        ui->oneButton->setText((data[0]["usrname"].get<std::string>()+"("+data[0]["detail"].get<std::string>()+")").c_str());
        else
+       {
            ui->oneButton->hide();
+           ui->e1->hide();
+           ui->r1->hide();
+       }
 
        if(data[1] .size())
        ui->twoButton->setText((data[1]["usrname"].get<std::string>()+"("+data[1]["detail"].get<std::string>()+")").c_str());
-       else
+       else{
            ui->twoButton->hide();
+       ui->e2->hide();
+       ui->r2->hide();
+   }
 
        if(data[2] .size())
        ui->threeButton->setText((data[2]["usrname"].get<std::string>()+"("+data[2]["detail"].get<std::string>()+")").c_str());
-       else
+       else{
            ui->threeButton->hide();
+       ui->e3->hide();
+       ui->r3->hide();
+   }
 
        if(data[3] .size())
        ui->fourButton->setText((data[3]["usrname"].get<std::string>()+"("+data[3]["detail"].get<std::string>()+")").c_str());
-       else
+       else{
            ui->fourButton->hide();
+           ui->e4->hide();
+           ui->r4->hide();
+       }
 
        if(data[4] .size())
        ui->fiveButton->setText((data[4]["usrname"].get<std::string>()+"("+data[4]["detail"].get<std::string>()+")").c_str());
-       else
+       else{
            ui->fiveButton->hide();
+           ui->e5->hide();
+           ui->r5->hide();
+       }
 
 
    }
@@ -75,6 +107,7 @@ void managepsw::dataShow()
        page=0;
        total=0;
    }
+   ui->pageText->setText((to_string( page)+"/"+to_string(total)).c_str());
 }
 void managepsw::setupconnections()
 {
@@ -92,6 +125,11 @@ void managepsw::setupconnections()
     connect(ui->fourButton,  &QPushButton::clicked, this, [this]{ showPw(3); });
     connect(ui->fiveButton,  &QPushButton::clicked, this, [this]{ showPw(4); });
 
+    connect(ui->firstB,  &QPushButton::clicked, this, [this]{ page=1;dataShow() ;});
+    connect(ui->lastB,  &QPushButton::clicked, this, [this]{ page=total;dataShow(); });
+
+    connect(ui->prevB,  &QPushButton::clicked, this, [this]{ if(page==1)return;page--;dataShow() ;});
+    connect(ui->nextB,  &QPushButton::clicked, this, [this]{ if(page==total)return;page++;dataShow(); });
 
 }
 
