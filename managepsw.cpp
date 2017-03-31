@@ -37,14 +37,15 @@ void managepsw::handlemodifyButtonClicked()
 {
     //qDebug()<<"yao xiugai le wo";
     ui->newWidget->setVisible(false);
-    ui->modifyWidget->setVisible(true);
+    ui->listWidget->setVisible(true);
+    //ui->modifyWidget->setVisible(true);
    /*
     QStringList num;
     num<<QString("1")<<QString("2")<<QString("3");
     QStringListModel*model = new QStringListModel(num);
     ui->pwdlistView->setModel(model);
    */
-
+    /*
     QStringList detail;
     for(auto&x:j["list"])
     {
@@ -54,12 +55,13 @@ void managepsw::handlemodifyButtonClicked()
     QStringListModel*model = new QStringListModel(detail);
     ui->pwdlistView->setModel(model);
     model->setStringList(detail);
-
+    */
     /*
     for(auto&x:j["list"])
     {
         Button *x->setToolButtonStyle(QT::ToolButtonTextUnderIcon);
     }*/
+
 
 }
 

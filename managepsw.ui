@@ -58,7 +58,7 @@
      <rect>
       <x>600</x>
       <y>10</y>
-      <width>441</width>
+      <width>451</width>
       <height>361</height>
      </rect>
     </property>
@@ -171,10 +171,10 @@
    <widget class="QWidget" name="modifyWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>10</y>
-      <width>421</width>
-      <height>331</height>
+      <x>600</x>
+      <y>600</y>
+      <width>420</width>
+      <height>330</height>
      </rect>
     </property>
     <widget class="QListView" name="pwdlistView">
@@ -227,6 +227,123 @@
      </property>
      <property name="text">
       <string>next</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="listWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>10</y>
+      <width>390</width>
+      <height>331</height>
+     </rect>
+    </property>
+    <widget class="QPushButton" name="oneButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>371</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>one</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="twoButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>371</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>two</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="threeButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>371</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>three</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="fourButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>160</y>
+       <width>371</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>four</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="fiveButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>210</y>
+       <width>371</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>five</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="prevButton_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>270</y>
+       <width>89</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>prev</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="nextButton_2">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>270</y>
+       <width>89</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>next</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="pageLabel_2">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>270</y>
+       <width>67</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>page</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
