@@ -23,8 +23,8 @@ int main(int argc, char *argv[])
     h.show();
     managepsw m;
     m.show();
-    */
-    /*
+
+
     j["username"]="benben";   //input username
     j["userid"]="007";   //userid is automatic
     j["password"]="1234";   //input password
@@ -45,7 +45,9 @@ int main(int argc, char *argv[])
     {
     std::ofstream o("/root/file.json");
     o << j;
-    }*/
+    }
+   */
+
     {
     json u1,u2,u3;
     j["username"]="benben";   //input username
@@ -72,6 +74,7 @@ int main(int argc, char *argv[])
     o << j;
     }
     //qDebug()<<j.dump(4).c_str();
+
     return a.exec();
 
 

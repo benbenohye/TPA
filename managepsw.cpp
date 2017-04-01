@@ -14,7 +14,7 @@ managepsw::managepsw(QWidget *parent) :
     ui->setupUi(this);
     this->setupconnections();
     page=1;//the first page is 1
-    //dataShow();//show the list
+    dataShow();//show the list
     ui->editW->setVisible(false);
 }
 

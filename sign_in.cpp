@@ -2,6 +2,7 @@
 #include "ui_sign_in.h"
 #include <QDebug>
 #include <QMessageBox>
+#include <string>
 
 sign_in::sign_in(QWidget *parent) :
     QMainWindow(parent),
@@ -24,7 +25,10 @@ void sign_in::setupCOnnections()
 
 void sign_in::handleloginButtonClicked()
 {
-    if(ui->userNameEdit->text()==tr("benben")&&ui->passwordEdit->text()==tr("1234"))
+    auto user = ui->userNameEdit->text();
+    auto pwd = ui->passwordEdit->text();
+    //if(ui->userNameEdit->text()==tr("benben")&&ui->passwordEdit->text()==tr("1234"))
+    if(user.toStdString()== j["username"]&&pwd.toStdString()==j["password"])
     {
     //qDebug()<<"mima/yonghu cuowu //login sucessfully!";
     h1.show();
