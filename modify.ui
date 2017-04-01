@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="oldpwdLabel">
+   <widget class="QLabel" name="usrnameLabel">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -23,8 +23,14 @@
       <height>40</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/blue.png);</string>
+    </property>
     <property name="text">
-     <string>old password:</string>
+     <string>usrname:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="newpwdLabel">
@@ -36,8 +42,14 @@
       <height>40</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/green.png);</string>
+    </property>
     <property name="text">
-     <string>new password:</string>
+     <string>newpwd:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="confirmpwdLabel">
@@ -49,8 +61,14 @@
       <height>40</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/green.png);</string>
+    </property>
     <property name="text">
-     <string>confirm pwd:</string>
+     <string>confirmpwd:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="descriptionlabel">
@@ -62,8 +80,14 @@
       <height>40</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/blue.png);</string>
+    </property>
     <property name="text">
      <string>description:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="saveButton">
@@ -75,11 +99,15 @@
       <height>40</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/slin.png);
+border-image: url(:/new/prefix1/image/blue.png);</string>
+    </property>
     <property name="text">
      <string>save</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="oldpwdEdit">
+   <widget class="QLineEdit" name="usrnameEdit">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -89,7 +117,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="newpwdEdit">
+   <widget class="QLineEdit" name="passwordEdit">
     <property name="geometry">
      <rect>
       <x>130</x>

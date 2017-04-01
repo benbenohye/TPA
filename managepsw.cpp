@@ -1,5 +1,6 @@
 #include "managepsw.h"
 #include "ui_managepsw.h"
+#include <modify.h>
 #include <QDebug>
 #include <QStringListModel>
 #include <QMessageBox>
@@ -7,6 +8,7 @@
 #include <json.hpp>
 using json = nlohmann::json;
 extern json j;
+extern int a;
 managepsw::managepsw(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::managepsw)
@@ -165,6 +167,11 @@ void managepsw::setupconnections()
     connect(ui->r4,  &QPushButton::clicked, this, [this]{ removePw(3); });
     connect(ui->r5,  &QPushButton::clicked, this, [this]{ removePw(4); });
 
+    connect(ui->e1,  &QPushButton::clicked, this, [this]{ editPw(0); });
+    connect(ui->e2,  &QPushButton::clicked, this, [this]{ editPw(1); });
+    connect(ui->e3,  &QPushButton::clicked, this, [this]{ editPw(2); });
+    connect(ui->e4,  &QPushButton::clicked, this, [this]{ editPw(3); });
+    connect(ui->e5,  &QPushButton::clicked, this, [this]{ editPw(4); });
 
 }
 void managepsw::removePw(int i)
@@ -176,6 +183,24 @@ void managepsw::removePw(int i)
                     o << j;
     }
 }
+
+void managepsw::editPw(int i)
+{
+    modify *mo1 = new modify;
+    mo1->show();
+    a = (page - 1)*5+i;
+    json ji = j["list"][a];
+    std::string usri = ji["usrname"];
+    std::string pwdi = ji["pwd"];
+    std::string deti = ji["detail"];
+
+    ui->usrnameEdit->setText(usri.c_str());
+    ui->passwordEdit->setText(pwdi.c_str());
+    ui->confirmpwdEdit->setText(pwdi.c_str());
+    ui->descriptionEdit->setText(deti.c_str());
+}
+
+
 
 void managepsw::handlenewBClicked()
 {

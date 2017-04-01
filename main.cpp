@@ -9,6 +9,7 @@
 #include <QDebug>
 using json = nlohmann::json;
 json j;
+int a;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

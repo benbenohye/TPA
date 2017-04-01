@@ -26,7 +26,7 @@ public:
     void setupconnections();
     void dataShow();
     void removePw(int i);
-    void difShow();
+    void editPw(int i);
 
 public slots:
     void showPw(int i);
