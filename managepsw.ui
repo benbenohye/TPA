@@ -108,7 +108,7 @@
     <widget class="QPushButton" name="finishButton">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>160</x>
        <y>330</y>
        <width>89</width>
        <height>25</height>
@@ -126,6 +126,19 @@
        <width>260</width>
        <height>131</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="exitButton">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>330</y>
+       <width>89</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>exit</string>
      </property>
     </widget>
    </widget>
@@ -473,70 +486,5 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>oneButton</sender>
-   <signal>clicked()</signal>
-   <receiver>managepsw</receiver>
-   <slot>show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>235</x>
-     <y>193</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>612</x>
-     <y>293</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>newB</sender>
-   <signal>clicked()</signal>
-   <receiver>browseW</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>220</x>
-     <y>90</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>265</x>
-     <y>288</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>finishButton</sender>
-   <signal>clicked()</signal>
-   <receiver>editW</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>944</x>
-     <y>380</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>875</x>
-     <y>218</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>finishButton</sender>
-   <signal>clicked()</signal>
-   <receiver>browseW</receiver>
-   <slot>show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>944</x>
-     <y>380</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>265</x>
-     <y>288</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

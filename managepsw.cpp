@@ -120,6 +120,7 @@ void managepsw::setupconnections()
 
     connect(this->ui->finishButton,SIGNAL(clicked(bool)),this,SLOT(handlefinishButtonClicked()));
     connect(this->ui->newB,SIGNAL(clicked(bool)),this,SLOT(handlenewBClicked()));
+    connect(this->ui->exitButton,SIGNAL(clicked(bool)),this,SLOT(handlenexitButtonClicked()));
 
 
     connect(ui->oneButton,  &QPushButton::clicked, this, [this]{ showPw(0); });
@@ -136,6 +137,7 @@ void managepsw::setupconnections()
     connect(ui->prevB,  &QPushButton::clicked, this, [this]{ if(page==1)return;page--;dataShow() ;});
     connect(ui->nextB,  &QPushButton::clicked, this, [this]{ if(page==total)return;page++;dataShow(); });
 
+    /*
     connect(ui->newB,  &QPushButton::clicked, this, [this]{  auto& t=j["list"];
         json newJ=R"(
                   {
@@ -153,6 +155,7 @@ void managepsw::setupconnections()
                 o << j;
                 }
     });
+    */
 
     //auto re=[this](int i){j["list"].erase(j["list"].begin()+(page-1)*5+i);};
 
@@ -178,6 +181,7 @@ void managepsw::handlenewBClicked()
 {
     //ui->browseW->hide();
     ui->editW->setVisible(true);
+    ui->browseW->setVisible(false);
 }
 
 void managepsw::handlemodifyButtonClicked()
@@ -216,7 +220,48 @@ void managepsw::handledeleteButtonClicked()
 
 void managepsw::handlefinishButtonClicked()
 {
-    qDebug()<<"xinjian haole wo";
+    //qDebug()<<"xinjian haole wo";
+    auto& t=j["list"];
+        json j2;
+        auto usr1 = ui->usrnameEdit->text();
+        auto pwd1 = ui->passwordEdit->text();
+        auto pwd2 = ui->confirmpwdEdit->text();
+        auto desc1 =ui->descriptionEdit->toPlainText();
+        if(pwd1 == pwd2)
+        {
+            if(usr1!= NULL)
+            {
+            j2["usrname"] = usr1.toStdString();
+            j2["pwd"] = pwd1.toStdString();
+            j2["detail"]=desc1.toStdString();
+            t.insert(t.begin(),j2);
+            {
+            std::ofstream o("/root/file.json");
+            o << j;
+            }
+            QMessageBox::information(this,"OK","successfully!",QMessageBox::Yes);
+            page=1;dataShow();
+            }
+            else
+            {
+                 QMessageBox::warning(this,"fail","the usrname is NULL!",QMessageBox::Yes);
+            }
+            ui->browseW->show();
+            ui->editW->hide();
+            ui->usrnameEdit->clear();
+            ui->passwordEdit->clear();
+            ui->confirmpwdEdit->clear();
+            ui->descriptionEdit->clear();
+        }
+        else
+        {
+            QMessageBox::warning(this,"fail","the passwords are different!",QMessageBox::Yes);
+            ui->editW->setVisible(true);
+            ui->browseW->hide();
+            ui->confirmpwdEdit->clear();
+            ui->confirmpwdEdit->setFocus();
+        }
+
 }
 
 void managepsw::handleprevButtonClicked()
@@ -227,4 +272,16 @@ void managepsw::handleprevButtonClicked()
 void managepsw::handlenextButtonClicked()
 {
 
+}
+
+void managepsw::handlenexitButtonClicked()
+{
+   ui->editW->hide();
+   ui->browseW->show();
+   ui->editW->hide();
+   ui->usrnameEdit->clear();
+   ui->passwordEdit->clear();
+   ui->confirmpwdEdit->clear();
+   ui->descriptionEdit->clear();
+   ui->browseW->show();
 }

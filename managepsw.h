@@ -39,6 +39,7 @@ public slots:
 
     void handleprevButtonClicked();
     void handlenextButtonClicked();
+    void handlenexitButtonClicked();
 
 private:
     int page;
