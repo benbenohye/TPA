@@ -14,33 +14,18 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="headpicLabel">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>111</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="text">
-     <string>headpic</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
    <widget class="QLabel" name="usernameLabel">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>50</y>
+      <x>90</x>
+      <y>40</y>
       <width>111</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+</string>
     </property>
     <property name="text">
      <string>username</string>
@@ -52,11 +37,14 @@
    <widget class="QPushButton" name="manageButton">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>150</y>
+      <x>80</x>
+      <y>110</y>
       <width>141</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/blue.png);</string>
     </property>
     <property name="text">
      <string>manage_psw</string>
@@ -65,11 +53,14 @@
    <widget class="QPushButton" name="searchButton">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>80</x>
       <y>230</y>
       <width>141</width>
       <height>61</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/green.png);</string>
     </property>
     <property name="text">
      <string>search_psw</string>

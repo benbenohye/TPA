@@ -23,6 +23,9 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/blue.png);</string>
+    </property>
     <property name="text">
      <string>sign_InButton</string>
     </property>
@@ -35,6 +38,9 @@
       <width>121</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/green.png);</string>
     </property>
     <property name="text">
      <string>sign_UpButton</string>

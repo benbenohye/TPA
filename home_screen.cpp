@@ -1,6 +1,7 @@
 #include "home_screen.h"
 #include "ui_home_screen.h"
 #include <QDebug>
+#include <string>
 
 home_screen::home_screen(QWidget *parent) :
     QMainWindow(parent),
@@ -8,6 +9,8 @@ home_screen::home_screen(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setupconnections();
+    std::string user = j["username"];
+    ui->usernameLabel->setText(user.c_str());
 }
 
 home_screen::~home_screen()

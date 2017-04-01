@@ -9,5 +9,15 @@
         <file>image/png400343160606101-lp.png</file>
         <file>image/purple.png</file>
         <file>image/rs.qrc</file>
+        <file>image/slin.png</file>
+        <file>image/rewind.png</file>
+        <file>image/previous.png</file>
+        <file>image/pencil.png</file>
+        <file>image/next.png</file>
+        <file>image/green.png</file>
+        <file>image/forward.png</file>
+        <file>image/d.png</file>
+        <file>image/blue.png</file>
+        <file>image/add.png</file>
     </qresource>
 </RCC>
