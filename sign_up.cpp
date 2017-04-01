@@ -1,6 +1,15 @@
 #include "sign_up.h"
 #include "ui_sign_up.h"
 #include <QDebug>
+#include <QMessageBox>
+#include <fstream>
+char*getenv(char*name);
+//#include <getenv>
+#include <string>
+using namespace std;
+
+
+//#include <char *getenv()>
 
 sign_up::sign_up(QWidget *parent) :
     QWidget(parent),
@@ -22,5 +31,25 @@ void sign_up::setupCOnnections()
 
 void sign_up::handelfinishButtonClicked()
 {
-    qDebug()<<"cuowu//zhuce chenggong!";
+    json j2;
+    //qDebug()<<"cuowu//zhuce chenggong!";
+    auto u = ui->userNameEdit->text();
+    auto p = ui->passwordEdit->text();
+    if ( ui->confirmPWEdit->text()==p)
+    {
+        j2["username"] = u.toStdString();
+        j2["password"] = p.toStdString();
+        {
+                std::ofstream i(string(getenv("HOME"))+"/file2.json");
+                i << j2;
+        }
+        this->close();
+    }
+    else
+    {
+        QMessageBox::warning(this,tr("Warning"),tr("the password is different!"),QMessageBox::Yes);
+        ui->confirmPWEdit->clear();
+        ui->passwordEdit->setFocus();
+    }
+
 }
