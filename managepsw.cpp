@@ -13,8 +13,9 @@ managepsw::managepsw(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setupconnections();
-    page=1;
-    dataShow();
+    page=1;//the first page is 1
+    //dataShow();//show the list
+    ui->editW->setVisible(false);
 }
 
 managepsw::~managepsw()
@@ -22,7 +23,7 @@ managepsw::~managepsw()
     delete ui;
 }
 
-void managepsw::showPw(int i)
+void managepsw::showPw(int i)//the show of password
 {
 
     QMessageBox::information(this,"password",data[i]["pwd"].get<std::string>().c_str());
@@ -30,7 +31,6 @@ void managepsw::showPw(int i)
 
 void managepsw::dataShow()
 {
-
     ui->oneButton->show();
     ui->e1->show();
     ui->r1->show();
@@ -71,23 +71,26 @@ void managepsw::dataShow()
 
        if(data[1] .size())
        ui->twoButton->setText((data[1]["usrname"].get<std::string>()+"("+data[1]["detail"].get<std::string>()+")").c_str());
-       else{
+       else
+       {
            ui->twoButton->hide();
-       ui->e2->hide();
-       ui->r2->hide();
-   }
+           ui->e2->hide();
+           ui->r2->hide();
+       }
 
        if(data[2] .size())
        ui->threeButton->setText((data[2]["usrname"].get<std::string>()+"("+data[2]["detail"].get<std::string>()+")").c_str());
-       else{
+       else
+       {
            ui->threeButton->hide();
-       ui->e3->hide();
-       ui->r3->hide();
-   }
+           ui->e3->hide();
+           ui->r3->hide();
+       }
 
        if(data[3] .size())
        ui->fourButton->setText((data[3]["usrname"].get<std::string>()+"("+data[3]["detail"].get<std::string>()+")").c_str());
-       else{
+       else
+       {
            ui->fourButton->hide();
            ui->e4->hide();
            ui->r4->hide();
@@ -95,7 +98,8 @@ void managepsw::dataShow()
 
        if(data[4] .size())
        ui->fiveButton->setText((data[4]["usrname"].get<std::string>()+"("+data[4]["detail"].get<std::string>()+")").c_str());
-       else{
+       else
+       {
            ui->fiveButton->hide();
            ui->e5->hide();
            ui->r5->hide();
@@ -103,7 +107,8 @@ void managepsw::dataShow()
 
 
    }
-   else{
+   else
+   {
        page=0;
        total=0;
    }
@@ -114,7 +119,7 @@ void managepsw::setupconnections()
 
 
     connect(this->ui->finishButton,SIGNAL(clicked(bool)),this,SLOT(handlefinishButtonClicked()));
-
+    connect(this->ui->newB,SIGNAL(clicked(bool)),this,SLOT(handlenewBClicked()));
 
 
     connect(ui->oneButton,  &QPushButton::clicked, this, [this]{ showPw(0); });
@@ -149,7 +154,7 @@ void managepsw::setupconnections()
                 }
     });
 
-    auto re=[this](int i){j["list"].erase(j["list"].begin()+(page-1)*5+i);};
+    //auto re=[this](int i){j["list"].erase(j["list"].begin()+(page-1)*5+i);};
 
     connect(ui->r1,  &QPushButton::clicked, this, [this]{ removePw(0); });
     connect(ui->r2,  &QPushButton::clicked, this, [this]{ removePw(1); });
@@ -166,10 +171,13 @@ void managepsw::removePw(int i)
                     {
                     std::ofstream o("/root/file.json");
                     o << j;
-                    }
+    }
 }
-void managepsw::handlenewButtonClicked()
+
+void managepsw::handlenewBClicked()
 {
+    //ui->browseW->hide();
+    ui->editW->setVisible(true);
 }
 
 void managepsw::handlemodifyButtonClicked()

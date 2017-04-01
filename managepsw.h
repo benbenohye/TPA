@@ -26,11 +26,12 @@ public:
     void setupconnections();
     void dataShow();
     void removePw(int i);
+    void difShow();
 
 public slots:
     void showPw(int i);
 
-    void handlenewButtonClicked();
+    void handlenewBClicked();
     void handlemodifyButtonClicked();
     void handledeleteButtonClicked();
 

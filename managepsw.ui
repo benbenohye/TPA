@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1322</width>
-    <height>1047</height>
+    <width>530</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QWidget" name="editW" native="true">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>10</y>
+      <x>30</x>
+      <y>40</y>
       <width>451</width>
       <height>361</height>
      </rect>
@@ -451,8 +451,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1322</width>
-     <height>23</height>
+     <width>530</width>
+     <height>28</height>
     </rect>
    </property>
    <widget class="QMenu" name="menumanagepsw">
@@ -460,8 +460,8 @@
      <rect>
       <x>345</x>
       <y>85</y>
-      <width>121</width>
-      <height>52</height>
+      <width>136</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="title">
@@ -487,6 +487,54 @@
     <hint type="destinationlabel">
      <x>612</x>
      <y>293</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>newB</sender>
+   <signal>clicked()</signal>
+   <receiver>browseW</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>220</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>288</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>finishButton</sender>
+   <signal>clicked()</signal>
+   <receiver>editW</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>944</x>
+     <y>380</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>875</x>
+     <y>218</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>finishButton</sender>
+   <signal>clicked()</signal>
+   <receiver>browseW</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>944</x>
+     <y>380</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>265</x>
+     <y>288</y>
     </hint>
    </hints>
   </connection>
