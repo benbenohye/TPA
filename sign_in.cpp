@@ -28,7 +28,7 @@ void sign_in::handleloginButtonClicked()
     auto user = ui->userNameEdit->text();
     auto pwd = ui->passwordEdit->text();
     //if(ui->userNameEdit->text()==tr("benben")&&ui->passwordEdit->text()==tr("1234"))
-    if(user.toStdString()== j["username"]&&pwd.toStdString()==j["password"])
+    if(user.toStdString()== j["username"]&&md5(pwd.toStdString())==j["password"])
     {
     //qDebug()<<"mima/yonghu cuowu //login sucessfully!";
     h1.show();

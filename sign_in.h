@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include <managepsw.h>
+#include <md5.h>
+#include "stdafx.h"
+#include <aes.h>
+#include <cstring>
 #include <json.hpp>
 #include <home_screen.h>
 using json = nlohmann::json;

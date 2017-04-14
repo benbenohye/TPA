@@ -37,14 +37,29 @@ void sign_up::handelfinishButtonClicked()
     auto p = ui->passwordEdit->text();
     if ( ui->confirmPWEdit->text()==p)
     {
-        j2["username"] = u.toStdString();
-        j2["password"] = p.toStdString();
+        if(u == NULL||p == NULL)
         {
-                std::ofstream i(string(getenv("HOME"))+"/file.json");
-                i << j2;
+           QMessageBox::warning(this,"fail","the usrname or password is NULL!",QMessageBox::Yes);
+        }
+        else if(p.length()<6)
+        {
+           QMessageBox::information(this,"warning","the password is too short!");
+        }
+        else if(p.length()>30)
+        {
+           QMessageBox::information(this,"warning","the password is too long!");
+        }
+        else
+        {
+        j2["username"] = u.toStdString();
+        j2["password"] = md5(p.toStdString());
+        {
+                std::ofstream o(string(getenv("HOME"))+"/file.json");
+                o << j2;
         }
         QMessageBox::information(this,"warning","successfully!");
         this->close();
+        }
     }
     else
     {

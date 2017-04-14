@@ -7,6 +7,7 @@
 #include <fstream>
 #include <json.hpp>
 #include <QDebug>
+char*getenv(char*name);
 using json = nlohmann::json;
 json j;
 int a;
@@ -47,7 +48,7 @@ int main(int argc, char *argv[])
     std::ofstream o("/root/file.json");
     o << j;
     }
-   */
+
 
     {
     json u1,u2,u3;
@@ -75,8 +76,9 @@ int main(int argc, char *argv[])
     o << j;
     }
     //qDebug()<<j.dump(4).c_str();
-
+    */
+    std::ifstream i(string(getenv("HOME"))+"/file.json");
+    i >> j;
     return a.exec();
-
 
 }

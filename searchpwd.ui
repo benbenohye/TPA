@@ -6,87 +6,118 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>420</height>
+    <width>400</width>
+    <height>365</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableView" name="pwdtableView">
+   <widget class="QPushButton" name="saveButton">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>80</y>
-      <width>501</width>
-      <height>231</height>
+      <x>170</x>
+      <y>270</y>
+      <width>60</width>
+      <height>30</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QPushButton" name="prevButton">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>330</y>
-      <width>89</width>
-      <height>25</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/blue.png);</string>
     </property>
     <property name="text">
-     <string>prev</string>
+     <string>save</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="nextButton">
+   <widget class="QLabel" name="oldpwdlabel">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>330</y>
-      <width>89</width>
-      <height>25</height>
+      <x>20</x>
+      <y>40</y>
+      <width>80</width>
+      <height>40</height>
      </rect>
     </property>
-    <property name="text">
-     <string>next</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="pageLabel">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>330</y>
-      <width>67</width>
-      <height>17</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/blue.png);</string>
     </property>
     <property name="text">
-     <string>page</string>
+     <string>old_pwd:</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="searchcontentEdit">
+   <widget class="QLabel" name="newpwdlabel">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>20</y>
-      <width>341</width>
+      <x>20</x>
+      <y>120</y>
+      <width>80</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/green.png);</string>
+    </property>
+    <property name="text">
+     <string>new_pwd:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="confpwdlabel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>200</y>
+      <width>80</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/image/green.png);</string>
+    </property>
+    <property name="text">
+     <string>conf_new:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="oldpwdEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>40</y>
+      <width>260</width>
       <height>41</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="searchButton">
+   <widget class="QLineEdit" name="newpwdEdit">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>30</y>
-      <width>89</width>
-      <height>25</height>
+      <x>120</x>
+      <y>120</y>
+      <width>260</width>
+      <height>40</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="confpwdEdit">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>200</y>
+      <width>260</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="text">
-     <string>search</string>
+     <string/>
     </property>
    </widget>
   </widget>
@@ -95,13 +126,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>400</width>
      <height>28</height>
     </rect>
    </property>
    <widget class="QMenu" name="menusearchpwd">
     <property name="title">
-     <string>searchpwd</string>
+     <string>modifypwd</string>
     </property>
    </widget>
    <addaction name="menusearchpwd"/>

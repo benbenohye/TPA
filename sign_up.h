@@ -2,6 +2,10 @@
 #define SIGN_UP_H
 
 #include <QWidget>
+#include <md5.h>
+#include "stdafx.h"
+#include <aes.h>
+#include <cstring>
 #include <json.hpp>
 using json = nlohmann::json;
 extern json j;

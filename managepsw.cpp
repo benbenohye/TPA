@@ -27,8 +27,10 @@ managepsw::~managepsw()
 
 void managepsw::showPw(int i)//the show of password
 {
-
-    QMessageBox::information(this,"password",data[i]["pwd"].get<std::string>().c_str());
+     unsigned char key[16] = "abcd";
+     AES aes(key);
+     char str[32] = data[i]["pwd"];
+     QMessageBox::information(this,"password",aes.InvCipher((void *)str,21).get<std::string>().c_str());
 }
 
 void managepsw::dataShow()
@@ -256,8 +258,11 @@ void managepsw::handlefinishButtonClicked()
         {
             if(usr1!= NULL)
             {
+                char str[32] = pwd1.c_str();
+                unsigned char key[16] = "abcd";
+                AES aes(key);
             j2["usrname"] = usr1.toStdString();
-            j2["pwd"] = pwd1.toStdString();
+            j2["pwd"] = aes.Cipher((void *)str);;
             j2["detail"]=desc1.toStdString();
             t.insert(t.begin(),j2);
             {

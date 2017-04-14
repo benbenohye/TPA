@@ -2,6 +2,10 @@
 #define MODIFY_H
 
 #include <QMainWindow>
+#include <md5.h>
+#include "stdafx.h"
+#include <aes.h>
+#include <cstring>
 #include <json.hpp>
 using json = nlohmann::json;
 extern json j;

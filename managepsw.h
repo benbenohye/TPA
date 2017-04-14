@@ -7,6 +7,10 @@
 #include <vector>
 #include <deque>
 #include <fstream>
+#include <md5.h>
+#include "stdafx.h"
+#include <aes.h>
+#include <cstring>
 using namespace std;
 using json = nlohmann::json;
 extern json j;

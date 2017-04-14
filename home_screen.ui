@@ -24,8 +24,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>username</string>
@@ -47,7 +46,7 @@
      <string notr="true">border-image: url(:/new/prefix1/image/blue.png);</string>
     </property>
     <property name="text">
-     <string>manage_psw</string>
+     <string>manage_pwd</string>
     </property>
    </widget>
    <widget class="QPushButton" name="searchButton">
@@ -63,7 +62,7 @@
      <string notr="true">border-image: url(:/new/prefix1/image/green.png);</string>
     </property>
     <property name="text">
-     <string>search_psw</string>
+     <string>modify_userpwd</string>
     </property>
    </widget>
   </widget>
@@ -76,6 +75,12 @@
      <height>28</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menumainwindow">
+    <property name="title">
+     <string>home</string>
+    </property>
+   </widget>
+   <addaction name="menumainwindow"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

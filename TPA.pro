@@ -31,16 +31,22 @@ SOURCES += main.cpp\
     home_screen.cpp \
     managepsw.cpp \
     searchpwd.cpp \
-    modify.cpp
+    modify.cpp \
+    stdafx.cpp \
+    md5.cpp \
+    aes.cpp
 
 HEADERS  += mainwindow.h \
     sign_up.h \
     sign_in.h \
     home_screen.h \
     managepsw.h \
-    searchpwd.h \
     json.hpp \
-    modify.h
+    modify.h \
+    searchpwd.h \
+    stdafx.h \
+    md5.h \
+    aes.h
 
 FORMS    += mainwindow.ui \
     sign_up.ui \

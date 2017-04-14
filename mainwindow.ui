@@ -27,7 +27,7 @@
      <string notr="true">border-image: url(:/new/prefix1/image/blue.png);</string>
     </property>
     <property name="text">
-     <string>sign_InButton</string>
+     <string>sign_In</string>
     </property>
    </widget>
    <widget class="QPushButton" name="sign_UpButton">
@@ -43,7 +43,7 @@
      <string notr="true">border-image: url(:/new/prefix1/image/green.png);</string>
     </property>
     <property name="text">
-     <string>sign_UpButton</string>
+     <string>sign_Up</string>
     </property>
    </widget>
   </widget>
