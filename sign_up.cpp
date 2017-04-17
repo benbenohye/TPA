@@ -32,7 +32,6 @@ void sign_up::setupCOnnections()
 void sign_up::handelfinishButtonClicked()
 {
     //qDebug()<<"cuowu//zhuce chenggong!";
-    json j2;
     auto u = ui->userNameEdit->text();
     auto p = ui->passwordEdit->text();
     if ( ui->confirmPWEdit->text()==p)
@@ -51,11 +50,11 @@ void sign_up::handelfinishButtonClicked()
         }
         else
         {
-        j2["username"] = u.toStdString();
-        j2["password"] = md5(p.toStdString());
+        j["username"] = u.toStdString();
+        j["password"] = md5(p.toStdString());
         {
                 std::ofstream o(string(getenv("HOME"))+"/file.json");
-                o << j2;
+                o << j;
         }
         QMessageBox::information(this,"warning","successfully!");
         this->close();

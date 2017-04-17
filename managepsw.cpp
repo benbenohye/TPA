@@ -75,6 +75,16 @@ void managepsw::dataShow()
        if(page>total){
            page=total;
        }
+   }
+
+else
+{
+    page=1;
+    total=1;
+
+
+   }
+
        data.clear();
        for(int i=0;i<5;i++){
            data.push_back(j["list"][(page-1)*5+i]);
@@ -123,12 +133,7 @@ void managepsw::dataShow()
            ui->e5->hide();
            ui->r5->hide();
        }
-   }
-   else
-   {
-       page=0;
-       total=0;
-   }
+
    ui->pageText->setText((to_string( page)+"/"+to_string(total)).c_str());
 }
 void managepsw::setupconnections()

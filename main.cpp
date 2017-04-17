@@ -78,7 +78,11 @@ int main(int argc, char *argv[])
     //qDebug()<<j.dump(4).c_str();
     */
     std::ifstream i(string(getenv("HOME"))+"/file.json");
+    if(i){
     i >> j;
+
+    }
+    else{}
     return a.exec();
 
 }
