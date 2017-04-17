@@ -6,9 +6,11 @@
 #include <QMessageBox>
 #include <string>
 #include <json.hpp>
+char*getenv(char*name);
 using json = nlohmann::json;
 extern json j;
 extern int a;
+using namespace std;
 managepsw::managepsw(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::managepsw)
@@ -29,12 +31,25 @@ void managepsw::showPw(int i)//the show of password
 {
      unsigned char key[16] = "abcd";
      AES aes(key);
-     char str[32] = data[i]["pwd"];
-     QMessageBox::information(this,"password",aes.InvCipher((void *)str,21).get<std::string>().c_str());
+     string str1 = data[i]["pwd"];
+     unsigned char str[32];
+     strcpy((char*)str,str1.c_str());
+     string str3 = (char*)aes.InvCipher(str);
+     QMessageBox::information(this,"password",str3.c_str());//.get<std::string>().c_str()
 }
 
 void managepsw::dataShow()
 {
+   if(j["list"].size()==0)
+   {
+       json u1;
+       //u1["usrname"] = NULL;
+       //u1["pwd"]= NULL;
+       //u1["detail"] =NULL;
+       //j["list"].push_back(u1);
+       //j["list"]= u1;
+       j["list"]=json();
+   }
     ui->oneButton->show();
     ui->e1->show();
     ui->r1->show();
@@ -108,8 +123,6 @@ void managepsw::dataShow()
            ui->e5->hide();
            ui->r5->hide();
        }
-
-
    }
    else
    {
@@ -181,7 +194,7 @@ void managepsw::removePw(int i)
     j["list"].erase(j["list"].begin()+(page-1)*5+i);
     dataShow();
                     {
-                    std::ofstream o("/root/file.json");
+                    std::ofstream o(string(getenv("HOME"))+"/file.json");
                     o << j;
     }
 }
@@ -258,15 +271,19 @@ void managepsw::handlefinishButtonClicked()
         {
             if(usr1!= NULL)
             {
-                char str[32] = pwd1.c_str();
                 unsigned char key[16] = "abcd";
                 AES aes(key);
+                string str1 = pwd1.toStdString();
+                unsigned char str[32];
+                strcpy((char*)str,str1.c_str());
+                string str3 = (char*)aes.Cipher(str);
+
             j2["usrname"] = usr1.toStdString();
-            j2["pwd"] = aes.Cipher((void *)str);;
+            j2["pwd"] = str3;
             j2["detail"]=desc1.toStdString();
             t.insert(t.begin(),j2);
             {
-            std::ofstream o("/root/file.json");
+            std::ofstream o(string(getenv("HOME"))+"/file.json");
             o << j;
             }
             QMessageBox::information(this,"OK","successfully!",QMessageBox::Yes);
