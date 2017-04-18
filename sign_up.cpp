@@ -6,6 +6,7 @@
 char*getenv(char*name);
 //#include <getenv>
 #include <string>
+#include <cstring>
 using namespace std;
 
 
@@ -50,8 +51,10 @@ void sign_up::handelfinishButtonClicked()
         }
         else
         {
-        j["username"] = u.toStdString();
-        j["password"] = md5(p.toStdString());
+        //j["username"] = u.toStdString();
+        //j["password"] = md5(p.toStdString());
+        string u1= u.toStdString();
+        j[u1]["password"]= md5(p.toStdString());
         {
                 std::ofstream o(string(getenv("HOME"))+"/file.json");
                 o << j;

@@ -5,11 +5,13 @@
 #include <QStringListModel>
 #include <QMessageBox>
 #include <string>
+#include "base64.h"
 #include <json.hpp>
 char*getenv(char*name);
 using json = nlohmann::json;
 extern json j;
 extern int a;
+extern string username;
 using namespace std;
 managepsw::managepsw(QWidget *parent) :
     QMainWindow(parent),
@@ -32,15 +34,18 @@ void managepsw::showPw(int i)//the show of password
      unsigned char key[16] = "abcd";
      AES aes(key);
      string str1 = data[i]["pwd"];
-     unsigned char str[32];
-     strcpy((char*)str,str1.c_str());
+     string decoded = base64_decode(str1);
+     unsigned char str[16];
+     strcpy((char*)str,decoded.c_str());
      string str3 = (char*)aes.InvCipher(str);
+
      QMessageBox::information(this,"password",str3.c_str());//.get<std::string>().c_str()
 }
 
 void managepsw::dataShow()
 {
-   if(j["list"].size()==0)
+   /*
+    * if(j["list"].size()==0)
    {
        json u1;
        //u1["usrname"] = NULL;
@@ -49,7 +54,7 @@ void managepsw::dataShow()
        //j["list"].push_back(u1);
        //j["list"]= u1;
        j["list"]=json();
-   }
+   }*/
     ui->oneButton->show();
     ui->e1->show();
     ui->r1->show();
@@ -66,12 +71,12 @@ void managepsw::dataShow()
     ui->e5->show();
     ui->r5->show();
 
-   if(j["list"].size()){
+   if(j[username]["list"].size()){
        if(page==0){
            page=1;
        }
 
-       total=(j["list"].size()+4)/5;
+       total=(j[username]["list"].size()+4)/5;
        if(page>total){
            page=total;
        }
@@ -87,7 +92,7 @@ else
 
        data.clear();
        for(int i=0;i<5;i++){
-           data.push_back(j["list"][(page-1)*5+i]);
+           data.push_back(j[username]["list"][(page-1)*5+i]);
        }
        if(data[0] .size())
        ui->oneButton->setText((data[0]["usrname"].get<std::string>()+"("+data[0]["detail"].get<std::string>()+")").c_str());
@@ -196,7 +201,7 @@ void managepsw::setupconnections()
 }
 void managepsw::removePw(int i)
 {
-    j["list"].erase(j["list"].begin()+(page-1)*5+i);
+    j[username]["list"].erase(j[username]["list"].begin()+(page-1)*5+i);
     dataShow();
                     {
                     std::ofstream o(string(getenv("HOME"))+"/file.json");
@@ -209,7 +214,7 @@ void managepsw::editPw(int i)
     modify *mo1 = new modify;
     mo1->show();
     a = (page - 1)*5+i;
-    json ji = j["list"][a];
+    json ji = j[username]["list"][a];
     std::string usri = ji["usrname"];
     std::string pwdi = ji["pwd"];
     std::string deti = ji["detail"];
@@ -266,7 +271,7 @@ void managepsw::handledeleteButtonClicked()
 void managepsw::handlefinishButtonClicked()
 {
     //qDebug()<<"xinjian haole wo";
-    auto& t=j["list"];
+    auto& t=j[username]["list"];
         json j2;
         auto usr1 = ui->usrnameEdit->text();
         auto pwd1 = ui->passwordEdit->text();
@@ -279,12 +284,13 @@ void managepsw::handlefinishButtonClicked()
                 unsigned char key[16] = "abcd";
                 AES aes(key);
                 string str1 = pwd1.toStdString();
-                unsigned char str[32];
+                unsigned char str[16];
                 strcpy((char*)str,str1.c_str());
                 string str3 = (char*)aes.Cipher(str);
+                string encoded = base64_encode(reinterpret_cast<const unsigned char*>(str3.c_str()), str3.length());
 
             j2["usrname"] = usr1.toStdString();
-            j2["pwd"] = str3;
+            j2["pwd"] = encoded;
             j2["detail"]=desc1.toStdString();
             t.insert(t.begin(),j2);
             {

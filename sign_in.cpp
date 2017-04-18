@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <string>
-
+extstring username;
 sign_in::sign_in(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::sign_in)
@@ -28,18 +28,28 @@ void sign_in::handleloginButtonClicked()
     auto user = ui->userNameEdit->text();
     auto pwd = ui->passwordEdit->text();
     //if(ui->userNameEdit->text()==tr("benben")&&ui->passwordEdit->text()==tr("1234"))
-    if(user.toStdString()== j["username"]&&md5(pwd.toStdString())==j["password"])
+    //if(user.toStdString()== j["username"]&&md5(pwd.toStdString())==j["password"])
+    username = user.toStdString();
+    string password = md5(pwd.toStdString());
+    if(j[username])
     {
     //qDebug()<<"mima/yonghu cuowu //login sucessfully!";
-    h1.show();
-    this->close();
-    }
+        if(password==j[username]["password"])
+       {
+          h1.show();
+          this->close();
+        }
     else
     {
         QMessageBox::warning(this,tr("Warning"),tr("user name or password error"),QMessageBox::Yes);
         ui->userNameEdit->clear();
         ui->passwordEdit->clear();
         ui->userNameEdit->setFocus();
+    }
+    }
+    else
+    {
+        QMessageBox::warning(this,tr("Warning"),tr("user name dosen't exit"),QMessageBox::Yes);
     }
 }
 

@@ -11,6 +11,7 @@ char*getenv(char*name);
 using json = nlohmann::json;
 json j;
 int a;
+string username;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

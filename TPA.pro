@@ -34,7 +34,8 @@ SOURCES += main.cpp\
     modify.cpp \
     stdafx.cpp \
     md5.cpp \
-    aes.cpp
+    aes.cpp \
+    base64.cpp
 
 HEADERS  += mainwindow.h \
     sign_up.h \
@@ -46,7 +47,8 @@ HEADERS  += mainwindow.h \
     searchpwd.h \
     stdafx.h \
     md5.h \
-    aes.h
+    aes.h \
+    base64.h
 
 FORMS    += mainwindow.ui \
     sign_up.ui \

@@ -2,15 +2,14 @@
 #include "ui_home_screen.h"
 #include <QDebug>
 #include <string>
-
+extern string username;
 home_screen::home_screen(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::home_screen)
 {
     ui->setupUi(this);
     this->setupconnections();
-    std::string user = j["username"];
-    ui->usernameLabel->setText(user.c_str());
+    ui->usernameLabel->setText(username.c_str());
 }
 
 home_screen::~home_screen()
