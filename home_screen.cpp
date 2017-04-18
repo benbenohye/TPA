@@ -2,6 +2,7 @@
 #include "ui_home_screen.h"
 #include <QDebug>
 #include <string>
+using namespace std;
 extern string username;
 home_screen::home_screen(QWidget *parent) :
     QMainWindow(parent),

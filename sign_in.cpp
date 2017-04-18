@@ -3,13 +3,14 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <string>
-extstring username;
+extern string username;
 sign_in::sign_in(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::sign_in)
 {
     ui->setupUi(this);
     this->setupCOnnections();
+    ui->passwordEdit->setEchoMode(QLineEdit::Password);
 }
 
 sign_in::~sign_in()
@@ -31,10 +32,10 @@ void sign_in::handleloginButtonClicked()
     //if(user.toStdString()== j["username"]&&md5(pwd.toStdString())==j["password"])
     username = user.toStdString();
     string password = md5(pwd.toStdString());
-    if(j[username])
+    if(j[username].size())
     {
     //qDebug()<<"mima/yonghu cuowu //login sucessfully!";
-        if(password==j[username]["password"])
+        if(j[username]["password"]==password)
        {
           h1.show();
           this->close();

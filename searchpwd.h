@@ -27,7 +27,7 @@ public:
     void setupconnections();
 
 public slots:
-    void handlsaveButtonClicked();
+    void handlesaveButtonClicked();
 
 
 private:

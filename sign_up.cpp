@@ -18,6 +18,8 @@ sign_up::sign_up(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setupCOnnections();
+    ui->passwordEdit->setEchoMode(QLineEdit::Password);
+    ui->confirmPWEdit->setEchoMode(QLineEdit::Password);
 }
 
 sign_up::~sign_up()

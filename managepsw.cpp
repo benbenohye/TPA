@@ -22,6 +22,8 @@ managepsw::managepsw(QWidget *parent) :
     page=1;//the first page is 1
     dataShow();//show the list
     ui->editW->setVisible(false);
+    ui->confirmpwdEdit->setEchoMode(QLineEdit::Password);
+    ui->passwordEdit->setEchoMode(QLineEdit::Password);
 }
 
 managepsw::~managepsw()
@@ -31,7 +33,9 @@ managepsw::~managepsw()
 
 void managepsw::showPw(int i)//the show of password
 {
-     unsigned char key[16] = "abcd";
+     unsigned char key[16];
+     string str2 = j[username]["password"];
+     strcpy((char*)key,str2.c_str());
      AES aes(key);
      string str1 = data[i]["pwd"];
      string decoded = base64_decode(str1);
@@ -219,9 +223,18 @@ void managepsw::editPw(int i)
     std::string pwdi = ji["pwd"];
     std::string deti = ji["detail"];
 
+    unsigned char key[16];
+    string str2 = j[username]["password"];
+    strcpy((char*)key,str2.c_str());
+    AES aes(key);
+    string str1 = pwdi;
+    string decoded = base64_decode(str1);
+    unsigned char str[16];
+    strcpy((char*)str,decoded.c_str());
+    string str3 = (char*)aes.InvCipher(str);
+
     ui->usrnameEdit->setText(usri.c_str());
-    ui->passwordEdit->setText(pwdi.c_str());
-    ui->confirmpwdEdit->setText(pwdi.c_str());
+    ui->passwordEdit->setText(str3.c_str());
     ui->descriptionEdit->setText(deti.c_str());
 }
 
@@ -281,7 +294,10 @@ void managepsw::handlefinishButtonClicked()
         {
             if(usr1!= NULL)
             {
-                unsigned char key[16] = "abcd";
+                //unsigned char key[16] = "abcd";
+                unsigned char key[16];
+                string str2 = j[username]["password"];
+                strcpy((char*)key,str2.c_str());
                 AES aes(key);
                 string str1 = pwd1.toStdString();
                 unsigned char str[16];
