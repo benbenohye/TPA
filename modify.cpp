@@ -17,8 +17,24 @@ modify::modify(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setupconnections();
-    ui->passwordEdit->setEchoMode(QLineEdit::Password);
-    ui->confirmpwdEdit->setEchoMode(QLineEdit::Password);
+    json ji = j[username]["list"][a];
+    std::string usri = ji["usrname"];
+    std::string pwdi = ji["pwd"];
+    std::string deti = ji["detail"];
+
+    unsigned char key[16];
+    string str2 = j[username]["password"];
+    strcpy((char*)key,str2.c_str());
+    AES aes(key);
+    string str1 = pwdi;
+    string decoded = base64_decode(str1);
+    unsigned char str[16];
+    strcpy((char*)str,decoded.c_str());
+    string str3 = (char*)aes.InvCipher(str);
+
+    ui->usrnameEdit->setText(usri.c_str());
+    ui->passwordEdit->setText(str3.c_str());
+    ui->descriptionEdit->setText(deti.c_str());
 }
 
 modify::~modify()

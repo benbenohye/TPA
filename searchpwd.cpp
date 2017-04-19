@@ -12,9 +12,6 @@ searchpwd::searchpwd(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setupconnections();
-    ui->oldpwdEdit->setEchoMode(QLineEdit::Password);
-    ui->newpwdEdit->setEchoMode(QLineEdit::Password);
-    ui->confpwdEdit->setEchoMode(QLineEdit::Password);
 }
 
 searchpwd::~searchpwd()
