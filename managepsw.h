@@ -34,15 +34,8 @@ public:
 
 public slots:
     void showPw(int i);
-
     void handlenewBClicked();
-    void handlemodifyButtonClicked();
-    void handledeleteButtonClicked();
-
     void handlefinishButtonClicked();
-
-    void handleprevButtonClicked();
-    void handlenextButtonClicked();
     void handlenexitButtonClicked();
 
 private:

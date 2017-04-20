@@ -46,17 +46,6 @@ void managepsw::showPw(int i)//the show of password
 
 void managepsw::dataShow()
 {
-   /*
-    * if(j["list"].size()==0)
-   {
-       json u1;
-       //u1["usrname"] = NULL;
-       //u1["pwd"]= NULL;
-       //u1["detail"] =NULL;
-       //j["list"].push_back(u1);
-       //j["list"]= u1;
-       j["list"]=json();
-   }*/
     ui->oneButton->show();
     ui->e1->show();
     ui->r1->show();
@@ -166,27 +155,7 @@ void managepsw::setupconnections()
     connect(ui->prevB,  &QPushButton::clicked, this, [this]{ if(page==1)return;page--;dataShow() ;});
     connect(ui->nextB,  &QPushButton::clicked, this, [this]{ if(page==total)return;page++;dataShow(); });
 
-    /*
-    connect(ui->newB,  &QPushButton::clicked, this, [this]{  auto& t=j["list"];
-        json newJ=R"(
-                  {
-                    "usrname": "daye",
-                    "pwd": "3.14",
-                    "detail":"qq"
-                  }
-                )"_json;
 
-                t.insert(t.begin(),newJ);
-
-                page=1;dataShow();
-                {
-                std::ofstream o("/root/file.json");
-                o << j;
-                }
-    });
-    */
-
-    //auto re=[this](int i){j["list"].erase(j["list"].begin()+(page-1)*5+i);};
 
     connect(ui->r1,  &QPushButton::clicked, this, [this]{ removePw(0); });
     connect(ui->r2,  &QPushButton::clicked, this, [this]{ removePw(1); });
@@ -227,39 +196,6 @@ void managepsw::handlenewBClicked()
     ui->browseW->setVisible(false);
 }
 
-void managepsw::handlemodifyButtonClicked()
-{
-    //ui->modifyWidget->setVisible(true);
-   /*
-    QStringList num;
-    num<<QString("1")<<QString("2")<<QString("3");
-    QStringListModel*model = new QStringListModel(num);
-    ui->pwdlistView->setModel(model);
-   */
-    /*
-    QStringList detail;
-    for(auto&x:j["list"])
-    {
-    std::string s = x["detail"];
-    detail += QString(s.c_str());
-    }
-    QStringListModel*model = new QStringListModel(detail);
-    ui->pwdlistView->setModel(model);
-    model->setStringList(detail);
-    */
-    /*
-    for(auto&x:j["list"])
-    {
-        Button *x->setToolButtonStyle(QT::ToolButtonTextUnderIcon);
-    }*/
-
-
-}
-
-void managepsw::handledeleteButtonClicked()
-{
-    qDebug()<<"yao shanchu le wo";
-}
 
 void managepsw::handlefinishButtonClicked()
 {
@@ -318,15 +254,6 @@ void managepsw::handlefinishButtonClicked()
 
 }
 
-void managepsw::handleprevButtonClicked()
-{
-
-}
-
-void managepsw::handlenextButtonClicked()
-{
-
-}
 
 void managepsw::handlenexitButtonClicked()
 {
