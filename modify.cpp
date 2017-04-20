@@ -55,6 +55,7 @@ void modify::handlesaveButtonClicked()
             auto pwd1 = ui->passwordEdit->text();
             auto pwd2 = ui->confirmpwdEdit->text();
             auto desc1 =ui->descriptionEdit->toPlainText();
+            qDebug()<<j.dump(4).c_str();
             if(pwd1 == pwd2)
             {
                 if(usr1!= NULL)
@@ -71,6 +72,7 @@ void modify::handlesaveButtonClicked()
                 ja["usrname"] = usr1.toStdString();
                 ja["pwd"] = encoded;
                 ja["detail"]=desc1.toStdString();
+                qDebug()<<j.dump(4).c_str();
                 {
                 std::ofstream k(string(getenv("HOME"))+"/file.json");
                 k<< j;

@@ -83,7 +83,12 @@ else
 
        data.clear();
        for(int i=0;i<5;i++){
-           data.push_back(j[username]["list"][(page-1)*5+i]);
+           data.push_back(json());
+
+       }
+       int num=j[username]["list"].size()-(page-1)*5;
+       for(int i=0;i<5&&i<num;i++){
+           data[i]=(j[username]["list"][(page-1)*5+i]);
        }
        if(data[0] .size())
        ui->oneButton->setText((data[0]["usrname"].get<std::string>()+"("+data[0]["detail"].get<std::string>()+")").c_str());
@@ -200,12 +205,16 @@ void managepsw::handlenewBClicked()
 void managepsw::handlefinishButtonClicked()
 {
     //qDebug()<<"xinjian haole wo";
+    if(j[username]["list"].size()==0){
+        j[username]["list"]=json::array();
+    }
     auto& t=j[username]["list"];
         json j2;
         auto usr1 = ui->usrnameEdit->text();
         auto pwd1 = ui->passwordEdit->text();
         auto pwd2 = ui->confirmpwdEdit->text();
         auto desc1 =ui->descriptionEdit->toPlainText();
+        qDebug()<<j.dump(4).c_str();
         if(pwd1 == pwd2)
         {
             if(usr1!= NULL)
@@ -225,6 +234,7 @@ void managepsw::handlefinishButtonClicked()
             j2["pwd"] = encoded;
             j2["detail"]=desc1.toStdString();
             t.insert(t.begin(),j2);
+            qDebug()<<j.dump(4).c_str();
             {
             std::ofstream o(string(getenv("HOME"))+"/file.json");
             o << j;
